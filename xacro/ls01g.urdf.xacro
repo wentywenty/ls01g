@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<robot name="ls01g_laser" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- 定义模型路径变量 -->
+  <xacro:property name="mesh_path" value="package://ls01g/meshes" />
+  
+  <!-- 材质定义 -->
+  <material name="gray">
+    <color rgba="0.5 0.5 0.5 1.0"/>
+  </material>
+  
+  <material name="black">
+    <color rgba="0.1 0.1 0.1 1.0"/>
+  </material>
+
+  <!-- 激光雷达链接 -->
+  <link name="base_laser_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 1.75"/>
+      <geometry>
+        <!-- 修正这里，使用正确的变量名 -->
+        <mesh filename="${mesh_path}/laser.dae" scale="1 1 1"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 1.75"/>
+      <geometry>
+        <mesh filename="${mesh_path}/laser.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <!-- 坐标系固定链接 -->
+  <!-- <link name="map"/> -->
+  
+  <!-- 从 map 到 base_laser_link 的变换 -->
+  <!-- <joint name="map_to_laser_joint" type="fixed">
+    <parent link="map"/>
+    <child link="base_laser_link"/>
+    <origin xyz="0.5 0 0.2" rpy="0 0 0"/>
+  </joint> -->
+
+</robot>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>ls01g</name>
+  <version>0.2.1</version>
+  <description>
+    ROS2 driver for the LS01G lidar sensor.
+    This package provides ROS2 node interfaces for the LS01G laser scanner,
+    including nodes to publish scan data and utilities for visualization.
+    Supports direct connection via USB-UART bridge (CP210x).
+  </description>
+  
+  <maintainer email="2321901849@qq.com">YJB</maintainer>
+  
+  <license>MIT</license>
+  
+  <url type="website">https://github.com/wentywenty/ls01g</url>
+  <url type="bugtracker">https://github.com/wentywenty/ls01g/issues</url>
+  <url type="repository">https://github.com/wentywenty/ls01g</url>
+  
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  
+  <!-- 构建依赖 -->
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  
+  <!-- 额外运行时依赖 -->
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>tf2</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>launch</exec_depend>
+  
+  <!-- 测试依赖 -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  
+  <buildtool_export_depend>ament_cmake</buildtool_export_depend>
+  
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
